@@ -1,0 +1,16 @@
+#its just example .YAML format configuration
+
+#if you want to create jar file, !dont forget replace
+#application.properties from src/main/resources to /src folder (another way nobody cant change .properties)
+#you can use .YAML to run application from command-line and use .YML local configuration
+
+
+#spring.mandatory-file-encoding: UTF-8
+#server.servlet.encoding.charset: UTF-8
+#server.servlet.encoding.enabled: true
+#
+#spring.datasource.url: jdbc:mysql://localhost:3306/test_jar_boot
+#spring.datasource.driver-class-name: com.mysql.jdbc.Driver
+#spring.datasource.username: root
+#spring.datasource.password: 20148332
+#spring.jpa.hibernate.ddl-auto: create

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Task</title>
+</head>
+<body>
+
+<table border="0" style="width:200px">
+    <tbody>
+    <tr>
+        <td>
+            <form th:action="@{/{id}/set-done(id=${task.id})}">
+                <button>SET <span style="color:#27ae60">DONE</span>
+                </button>
+            </form>
+        </td>
+        <td>
+            <form th:action="@{/{id}/set-not-done(id=${task.id})}">
+                <button>SET <span style="color:#d35400">NOT DONE</span>
+                </button>
+            </form>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <form th:action="@{/edit/{id}(id=${task.id})}">
+                <button>EDIT <img th:src="@{/img/icon-edit.png}" alt="edit"/>
+                </button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<div th:switch="${task}">
+    <h2 th:case="null">WRONG TASK #ID! TASK NOT FOUND.</h2>
+    <div th:case="*">
+        <h2>TASK ID:
+            <a th:text="${task.id}"></a>
+            <a></a>
+            <a th:switch="${task.doneStatus}">
+                <p th:case="true"><span style="color:#27ae60">DONE </span><img
+                        th:src="@{/img/icon-status-done.png}" alt="status done"/></p>
+                <p th:case="false"><span style="color:#d35400">NOT DONE </span> <img
+                        th:src="@{/img/icon-status-not-done.png}" alt="status not-done"/></p>
+            </a>
+        </h2>
+
+        <p><strong>NAME: </strong> <a th:text="${task.taskName}"></a></p>
+        <p><strong>DESCRIPTION: </strong> <a th:text="${task.taskDescription}"></a></p>
+        <p><strong>CREATE DATE: </strong> <a th:text="${task.createDate}"></a></p>
+        <p><strong>DEADLINE DATE: </strong> <a th:text="${task.deadlineDate}"></a></p>
+
+
+    </div>
+</div>
+</body>
+
+<div>
+    <table style="width:200px">
+        <tr>
+            <td>
+                <form th:action="@{/del/{id}(id=${task.id})}">
+                    <button>DELETE
+                    </button>
+                </form>
+            </td>
+            <td>
+                <form th:action="@{/}">
+                    <button>BACK MAIN MENU
+                    </button>
+                </form>
+            </td>
+        </tr>
+    </table>
+</div>
+
+</html>

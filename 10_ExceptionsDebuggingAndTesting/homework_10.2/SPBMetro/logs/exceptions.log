@@ -1,0 +1,7 @@
+2021-06-05 17:18:13.796 [main] INFO  ExceptionsLogger - Unexpected error: java.lang.Exception
+2021-06-05 17:23:43.664 [main] INFO  ExceptionsLogger - Unexpected error: null
+2021-06-05 17:25:13.884 [main] INFO  ExceptionsLogger - Unexpected error: java.lang.Exception
+2021-06-05 17:31:36.547 [main] INFO  ExceptionsLogger - Unexpected error: java.io.PrintWriter@6a84a97d
+2021-06-05 17:32:51.393 [main] INFO  ExceptionsLogger - Unexpected error: java.lang.Exception
+	at Main.main(Main.java:53)
+

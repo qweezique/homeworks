@@ -1,0 +1,6 @@
+2021-06-05 17:14:35.455 [main] INFO  InputErrorsLogger - Станция не найдена: fff
+2021-06-05 17:14:55.302 [main] ERROR ExceptionsLogger - Unexpected error: java.lang.IllegalArgumentException
+2021-06-05 17:15:58.087 [main] ERROR ExceptionsLogger - Unexpected error: java.lang.IllegalArgumentException
+2021-06-05 17:16:34.362 [main] INFO  ExceptionsLogger - Unexpected error: java.lang.IllegalArgumentException
+2021-06-05 17:17:04.260 [main] INFO  ExceptionsLogger - Unexpected error: java.lang.Exception
+2021-06-05 17:31:28.714 [main] INFO  InputErrorsLogger - Станция не найдена: 
