@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 public class Main {
     private static EmailList emailList = new EmailList();
-    public static final String WRONG_EMAIL_ANSWER = "Неверный формат email";
 
     public static void main(String[] args) {
 
