@@ -20,7 +20,8 @@ public class Station implements Comparable<Station> {
     public String getName() {
         return name;
     }
-    public String getNameInquotation(){
+
+    public String getNameInquotation() {
         return "\"" + name + "\"";
     }
 
@@ -43,22 +44,22 @@ public class Station implements Comparable<Station> {
     public void setConnection(Station station) {
         isConnection = true;
         connectionsList.add(station);
-
     }
-    public Set<Station> getConnectionsList(){
+
+    public Set<Station> getConnectionsList() {
         Set<Station> connections = new TreeSet<>(connectionsList);
         connections.add(this);
-
         return connections;
     }
-    public String getStringConnection(){
+
+    public String getStringConnection() {
         return "\"" + name + "\"," + connectionsList;
     }
 
 
     @Override
     public String toString() {
-        return  "{\"name\":\"" +name +"\", \"line\": \"" + line.getNumber() + "\"}";
+        return "{\"name\":\"" + name + "\", \"line\": \"" + line.getNumber() + "\"}";
     }
 
     @Override
@@ -68,7 +69,6 @@ public class Station implements Comparable<Station> {
         if (isOneLine != 0) {
             return isOneLine;
         }
-
         return name.compareToIgnoreCase(station.getName());
     }
 }
