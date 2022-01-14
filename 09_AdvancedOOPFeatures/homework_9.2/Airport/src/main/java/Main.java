@@ -13,16 +13,16 @@ public class Main {
 
     public static List<Flight> findPlanesLeavingInTheNextTwoHours(Airport airport) {
 
-        Calendar c = Calendar.getInstance();
-        Date now = c.getTime();
-        c.add(Calendar.HOUR, 2);
-        Date date2hour = c.getTime();
+        Calendar calendar = Calendar.getInstance();
+        Date now = calendar.getTime();
+        calendar.add(Calendar.HOUR, 2);
+        Date dateTwoHoursLater = calendar.getTime();
 
         return airport.getTerminals().stream()
-                .flatMap((terminal -> terminal.getFlights().stream()))
+                .flatMap(terminal -> terminal.getFlights().stream())
                 .filter(f -> f.getType().equals(Flight.Type.DEPARTURE)
                         && f.getDate().after(now)
-                        && f.getDate().before(date2hour))
+                        && f.getDate().before(dateTwoHoursLater))
                 .collect(Collectors.toList());
     }
 }
