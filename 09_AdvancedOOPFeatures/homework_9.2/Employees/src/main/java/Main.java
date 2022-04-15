@@ -12,14 +12,13 @@ public class Main {
     }
 
     public static Employee findEmployeeWithHighestSalary(List<Employee> staff, int year) {
-        Date forNullEmployee = new Date();
 
         return
                 staff.stream()
                         .filter(e -> e.getWorkStart()
                                 .toInstant().atZone(ZoneId.systemDefault()).toLocalDate().getYear() == year)
                         .max(Comparator.comparing(Employee::getSalary))
-                        .orElse(new Employee("NoName", 0, forNullEmployee));
+                        .orElseThrow(() -> new RuntimeException("There no Employee, filtered with year " + year));
     }
 }
 
