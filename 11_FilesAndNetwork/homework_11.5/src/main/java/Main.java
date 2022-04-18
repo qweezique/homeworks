@@ -34,17 +34,18 @@ public class Main {
         createJSONfileWithTwoObj(metroLines);
 
         countStationInLine("metroMap.json");
-
     }
 
 
     public static void createJSONfileWithTwoObj(List<MetroLine> metroLines) {
         Map<String, String> linesName = new TreeMap<>();
-        metroLines.stream().forEach(line -> linesName.put(line.getNumber(), line.getName()));
+        metroLines.forEach(line -> linesName.put(line.getNumber(), line.getName()));
 
         Map<String, List<String>> stationsMap = new TreeMap<>();
-        metroLines.stream()
-                .forEach(line -> stationsMap.put(line.getNumber(), line.getStations().stream().map(station -> station.getName()).collect(Collectors.toList())));
+        metroLines.forEach(line -> stationsMap.put(line.getNumber(), line.getStations()
+                .stream()
+                .map(Station::getName)
+                .collect(Collectors.toList())));
 
         Set<Set<Station>> connections = new TreeSet<>((s, s1) -> {
 
@@ -82,15 +83,13 @@ public class Main {
 
     public static void countStationInLine(String path) {
         Path pathJ = Paths.get(path);
-
-
         StringBuilder builder = new StringBuilder();
+
         try {
             List<String> lines = Files.readAllLines(pathJ);
             lines.forEach(line -> builder.append(line));
         } catch (Exception ex) {
             ex.printStackTrace();
-
         }
 
         JSONParser jsonParser = new JSONParser();
