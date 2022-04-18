@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Main {
-    static String destDir = "/Users/qweezique/IdeaProjects/java_basics/11_FilesAndNetwork/homework_11.4/src/Data/Images";
+    static String destDir = "src/data/images/";
     static String URL = "https://lenta.ru";
 
     public static void main(String[] args) {
@@ -24,13 +24,12 @@ public class Main {
         try {
             Document doc = Jsoup.connect(URL).get();
 
-            Elements img = doc.getElementsByTag("img");
+            Elements images = doc.getElementsByTag("img");
             List<String> srcImgLinks =
-                    img.stream().map(element -> element.absUrl("src"))
-                            .filter(links -> links.endsWith(".jpg") || links.endsWith(".jpeg")) //скаичиваем только jpeg файлы
+                    images.stream()
+                            .map(element -> element.absUrl("src"))
+                            .filter(links -> links.endsWith(".jpg") || links.endsWith(".jpeg"))
                             .collect(Collectors.toList());
-//            srcImgLinks.forEach(System.out::println); //можно сразу распечатать все ссылки
-
 
             for (String imgLink : srcImgLinks
             ) {
@@ -39,7 +38,8 @@ public class Main {
                 if (indexName == imgLink.length()) {
                     imgLink = imgLink.substring(1, indexName);
                 }
-                String name = imgLink.substring(indexName, imgLink.length());
+
+                String name = imgLink.substring(indexName);
                 FileUtils.copyURLToFile(new URL(imgLink), new File(localFolderPath + name));
             }
 
@@ -53,9 +53,8 @@ public class Main {
         File directoryPath = new File(destination);
         String[] contents = directoryPath.list();
         System.out.println("List of Files in ~/" + directoryPath.getName() + ":\n");
-            Arrays.stream(contents).forEach(System.out::println);
+        Arrays.stream(contents).forEach(System.out::println);
     }
-
 }
 
 
