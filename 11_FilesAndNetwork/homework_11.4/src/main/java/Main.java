@@ -10,12 +10,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Main {
-    static String destDir = "src/data/images/";
-    static String URL = "https://lenta.ru";
+    private static final String SRC_DATA_IMAGES = "src/data/images/";
+    private static final String URL = "https://lenta.ru";
 
     public static void main(String[] args) {
-        downLoadImagesFromURL(URL, destDir);
-        printAllFilesInFolder(destDir);
+        downLoadImagesFromURL(URL, SRC_DATA_IMAGES);
+        printAllFilesInFolder(SRC_DATA_IMAGES);
     }
 
 
